@@ -52,5 +52,11 @@ buttonRollEl.addEventListener('click', function () {
 // holding the score
 buttonHoldEl.addEventListener('click', function () {
     // add to the total score
-    
+    final[activePlayer] += currentScore
+    // add to the current score
+    document.getElementById(`score--${activePlayer}`).textContent=final[activePlayer]
+    // check if current player value>100
+    if (final[activePlayer] >= 100) {
+
+    }
 })
