@@ -54,9 +54,27 @@ buttonHoldEl.addEventListener('click', function () {
     // add to the total score
     final[activePlayer] += currentScore
     // add to the current score
-    document.getElementById(`score--${activePlayer}`).textContent=final[activePlayer]
+    document.getElementById(`score--${activePlayer}`).textContent = final[activePlayer]
     // check if current player value>100
     if (final[activePlayer] >= 100) {
-
+        document.querySelector(`.player--${activePlayer}`).classList.add('player--winner')
+        // timeout refresh
+        setTimeout(function() {
+            location.reload(); // Reload the page
+          }, 5000); // 3000 milliseconds = 3 seconds          
     }
+    // switch player
+    player01.classList.toggle('player--active')
+    player02.classList.toggle('player--active')
+    document.getElementById(`current--${activePlayer}`).textContent = 0
+    activePlayer = activePlayer ? 0 : 1
+    // reset current
+    currentScore = 0
+    
+})
+
+
+// start a new game
+buttonNewEl.addEventListener('click', function () {
+    location.reload();
 })
